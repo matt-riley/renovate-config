@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Astro framework-specific Renovate rules",
+  "packageRules": [
+    {
+      "description": "Group Astro core and integrations",
+      "groupName": "Astro",
+      "matchPackageNames": ["/^astro/", "/^@astrojs\\//"],
+      "labels": ["astro", "dependencies"]
+    },
+    {
+      "description": "Group CSS/Tailwind packages",
+      "groupName": "CSS/Tailwind",
+      "matchPackageNames": [
+        "/^tailwindcss/",
+        "/^@tailwindcss\\//",
+        "autoprefixer",
+        "cssnano",
+        "sass",
+        "/^postcss/"
+      ],
+      "labels": ["css", "dependencies"]
+    },
+    {
+      "description": "Group Cloudflare packages",
+      "groupName": "Cloudflare",
+      "matchPackageNames": ["wrangler", "/^@cloudflare\\//"],
+      "labels": ["cloudflare", "dependencies"]
+    }
+  ]
+}
