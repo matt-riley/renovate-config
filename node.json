@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Node.js/TypeScript-specific Renovate rules",
+  "packageRules": [
+    {
+      "description": "Automerge devDependencies",
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "description": "Group TypeScript and type definitions",
+      "groupName": "TypeScript",
+      "matchPackageNames": ["/^@types\\//", "/^typescript/"],
+      "labels": ["typescript", "dependencies"]
+    },
+    {
+      "description": "Group linting/formatting tools",
+      "groupName": "linting",
+      "matchPackageNames": [
+        "/^oxlint/",
+        "/^oxfmt/",
+        "/^eslint/",
+        "/^prettier/",
+        "/^@typescript-eslint\\//",
+        "/^@eslint\\//",
+        "/^oxc-/",
+        "/^biome/"
+      ],
+      "labels": ["linting", "dependencies"]
+    },
+    {
+      "description": "Group testing frameworks",
+      "groupName": "testing",
+      "matchPackageNames": ["/^vitest/", "/^@vitest\\//", "/^jest/", "/jest$/"],
+      "labels": ["testing", "dependencies"]
+    },
+    {
+      "description": "Group build tools",
+      "groupName": "build-tools",
+      "matchPackageNames": [
+        "pkgroll",
+        "tsup",
+        "esbuild",
+        "/^rollup/",
+        "/^vite/"
+      ],
+      "labels": ["build", "dependencies"]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Go-specific Renovate rules with dependency groupings",
+  "packageRules": [
+    {
+      "description": "Group golang.org/x/* packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^golang\\.org\\/x\\//"],
+      "groupName": "golang.org/x packages",
+      "labels": ["go-stdlib", "dependencies"]
+    },
+    {
+      "description": "Group OpenTelemetry Go packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^go\\.opentelemetry\\.io\\//"],
+      "groupName": "OpenTelemetry",
+      "labels": ["observability", "dependencies"]
+    },
+    {
+      "description": "Group Charmbracelet TUI packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": [
+        "/^github\\.com\\/charmbracelet\\//",
+        "/^github\\.com\\/muesli\\//",
+        "/^github\\.com\\/lucasb-eyer\\//",
+        "/^github\\.com\\/aymanbagabas\\//",
+        "/^github\\.com\\/mattn\\/go-/"
+      ],
+      "groupName": "Charmbracelet TUI",
+      "labels": ["tui", "dependencies"]
+    },
+    {
+      "description": "Group go-chi router packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/go-chi\\//"],
+      "groupName": "go-chi",
+      "labels": ["router", "dependencies"]
+    },
+    {
+      "description": "Group Google/gRPC packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": [
+        "/^google\\.golang\\.org\\//",
+        "/^cloud\\.google\\.com\\//",
+        "/^github\\.com\\/googleapis\\//",
+        "/^github\\.com\\/google\\//",
+        "/^github\\.com\\/grpc-ecosystem\\//",
+        "/^github\\.com\\/cncf\\/xds\\//",
+        "/^github\\.com\\/envoyproxy\\//",
+        "/^github\\.com\\/planetscale\\//",
+        "/^cel\\.dev\\/"
+      ],
+      "groupName": "Google/gRPC",
+      "labels": ["google", "dependencies"]
+    },
+    {
+      "description": "Group Prometheus packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/prometheus\\//"],
+      "groupName": "Prometheus",
+      "labels": ["metrics", "dependencies"]
+    },
+    {
+      "description": "Group testcontainers packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/testcontainers\\//"],
+      "groupName": "Testcontainers",
+      "labels": ["testing", "dependencies"]
+    },
+    {
+      "description": "Group Goose migration packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/pressly\\/goose/"],
+      "groupName": "Goose migrations",
+      "labels": ["database", "dependencies"]
+    },
+    {
+      "description": "Group Cobra/Viper CLI packages",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/spf13\\//"],
+      "groupName": "Cobra/Viper CLI",
+      "labels": ["cli", "dependencies"]
+    },
+    {
+      "description": "Go indirect dependencies — automerge minor/patch",
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["indirect"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "labels": ["indirect", "dependencies"],
+      "groupName": "Go indirect dependencies"
+    }
+  ]
+}

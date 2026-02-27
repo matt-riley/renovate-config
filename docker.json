@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Docker and container image Renovate rules",
+  "packageRules": [
+    {
+      "description": "Group Docker base images by project",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "groupName": "Docker images",
+      "labels": ["docker", "dependencies"]
+    },
+    {
+      "description": "Pin Docker digests for reproducibility",
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["pin"],
+      "automerge": true
+    },
+    {
+      "description": "Require review for major Docker image updates",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "reviewers": ["matt-riley"]
+    }
+  ]
+}
