@@ -4,7 +4,7 @@ Shared Renovate presets for `matt-riley` repositories.
 
 ## Presets
 
-- `default` - Baseline rules (`config:recommended`, semantic commits, automerge for minor/patch, guarded majors, vulnerability alerts, and lockfile maintenance).
+- `default` - Baseline rules (`config:recommended`, semantic commits, a 2-day release cooldown before dependency PRs, automerge for minor/patch, guarded majors, vulnerability alerts, and lockfile maintenance).
 - `node` - Groups TypeScript, linting, testing, and build-tool updates; automerges `devDependencies`.
 - `go` - Groups common Go dependency ecosystems and automerges indirect minor/patch updates.
 - `docker` - Groups image updates, pins digests, and requires review for major updates.
