@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Terraform/OpenTofu-specific Renovate rules",
+  "packageRules": [
+    {
+      "description": "Mark Terraform-managed updates without replacing inherited labels",
+      "matchManagers": ["terraform"],
+      "addLabels": ["terraform"]
+    },
+    {
+      "description": "Group Terraform provider updates",
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["provider", "required_provider"],
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "groupName": "Terraform providers",
+      "addLabels": ["terraform-providers"]
+    },
+    {
+      "description": "Group Terraform module updates",
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["module"],
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "groupName": "Terraform modules",
+      "addLabels": ["terraform-modules"]
+    },
+    {
+      "description": "Review Terraform/OpenTofu runtime version changes manually",
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["required_version", "tfe_workspace"],
+      "groupName": "Terraform/OpenTofu runtime",
+      "rangeStrategy": "bump",
+      "automerge": false,
+      "addLabels": ["terraform-runtime"]
+    }
+  ]
+}
