@@ -5,7 +5,7 @@ Shared Renovate presets for `matt-riley` repositories.
 ## Presets
 
 - `default` - Baseline rules (`config:recommended`, semantic commits, a 2-day release cooldown before dependency PRs, automerge for minor/patch, guarded majors, vulnerability alerts, and lockfile maintenance).
-- `node` - Groups TypeScript, linting, testing, and build-tool updates; automerges `devDependencies`.
+- `node` - Groups TypeScript, linting, testing, and build-tool updates; automerges `devDependencies`; configures Mend Renovate auth for `@matt-riley` packages on GitHub Packages via `GITHUB_PACKAGES_TOKEN`.
 - `go` - Groups common Go dependency ecosystems and automerges indirect minor/patch updates.
 - `terraform` - Groups Terraform providers and modules, and keeps Terraform/OpenTofu runtime version updates manual.
 - `docker` - Groups image updates, pins digests, and requires review for major updates.
