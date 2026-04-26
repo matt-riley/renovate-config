@@ -13,6 +13,13 @@
   "npmrcMerge": true,
   "packageRules": [
     {
+      "description": "Skip release cooldown for @matt-riley npm packages and open PRs immediately",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["/^@matt-riley\\//"],
+      "minimumReleaseAge": null,
+      "prCreation": "immediate"
+    },
+    {
       "description": "Automerge devDependencies",
       "matchDepTypes": ["devDependencies"],
       "automerge": true
