@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Zig build.zig.zon dependency Renovate rules",
+  "packageRules": [
+    {
+      "description": "Group Zig package updates and require review (toolchain changes are breaking)",
+      "matchManagers": ["zig"],
+      "groupName": "Zig packages",
+      "labels": ["zig", "dependencies"],
+      "automerge": false,
+      "reviewers": ["matt-riley"]
+    }
+  ]
+}

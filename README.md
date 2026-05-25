@@ -11,6 +11,7 @@ Shared Renovate presets for `matt-riley` repositories.
 - `docker` - Groups image updates, pins digests, and requires review for major updates.
 - `github-actions` - Pins GitHub Action digests and groups workflow dependency updates.
 - `astro` - Groups Astro, CSS/Tailwind, and Cloudflare packages.
+- `zig` - Groups `build.zig.zon` dependency updates and requires manual review (automerge disabled) because Zig package updates can introduce breaking toolchain or API changes.
 
 ## Usage
 
@@ -21,7 +22,8 @@ Add a `.github/renovate.json` file in your repo:
   "extends": [
     "github>matt-riley/renovate-config",
     "github>matt-riley/renovate-config:terraform",
-    "github>matt-riley/renovate-config:github-actions"
+    "github>matt-riley/renovate-config:github-actions",
+    "github>matt-riley/renovate-config:zig"
   ]
 }
 ```
