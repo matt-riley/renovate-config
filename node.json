@@ -3,8 +3,8 @@
   "description": "Node.js/TypeScript-specific Renovate rules",
   "hostRules": [
     {
-      "description": "Authenticate Mend Renovate to GitHub Packages for @matt-riley npm packages",
-      "matchHost": "https://npm.pkg.github.com/",
+      "description": "Authenticate Renovate to GitHub Packages for @matt-riley npm packages",
+      "matchHost": "npm.pkg.github.com",
       "hostType": "npm",
       "token": "{{ secrets.GITHUB_PACKAGES_TOKEN }}"
     }
@@ -20,15 +20,16 @@
       "prCreation": "immediate"
     },
     {
-      "description": "Automerge devDependencies",
+      "description": "Automerge devDependencies (minor/patch only; majors require review via baseline policy)",
       "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
       "description": "Group TypeScript and type definitions",
       "groupName": "TypeScript",
       "matchPackageNames": ["/^@types\\//", "/^typescript/"],
-      "labels": ["typescript", "dependencies"]
+      "addLabels": ["typescript", "dependencies"]
     },
     {
       "description": "Group linting/formatting tools",
@@ -43,13 +44,13 @@
         "/^oxc-/",
         "/^biome/"
       ],
-      "labels": ["linting", "dependencies"]
+      "addLabels": ["linting", "dependencies"]
     },
     {
       "description": "Group testing frameworks",
       "groupName": "testing",
-      "matchPackageNames": ["/^vitest/", "/^@vitest\\//", "/^jest/", "/jest$/"],
-      "labels": ["testing", "dependencies"]
+      "matchPackageNames": ["/^vitest/", "/^@vitest\\//", "/^jest($|[-/])/", "ts-jest", "jest-junit"],
+      "addLabels": ["testing", "dependencies"]
     },
     {
       "description": "Group build tools",
@@ -61,7 +62,7 @@
         "/^rollup/",
         "/^vite/"
       ],
-      "labels": ["build", "dependencies"]
+      "addLabels": ["build", "dependencies"]
     }
   ]
 }

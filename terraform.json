@@ -3,7 +3,7 @@
   "description": "Terraform/OpenTofu-specific Renovate rules",
   "packageRules": [
     {
-      "description": "Mark Terraform-managed updates without replacing inherited labels",
+      "description": "Mark Terraform-managed updates (adds terraform label additively)",
       "matchManagers": ["terraform"],
       "addLabels": ["terraform"]
     },
@@ -30,7 +30,8 @@
       "groupName": "Terraform/OpenTofu runtime",
       "rangeStrategy": "bump",
       "automerge": false,
-      "addLabels": ["terraform-runtime"]
+      "addLabels": ["terraform-runtime"],
+      "reviewers": ["matt-riley"]
     }
   ]
 }

@@ -4,12 +4,12 @@ Shared Renovate presets for `matt-riley` repositories.
 
 ## Presets
 
-- `default` - Baseline rules (`config:recommended`, semantic commits, a 2-day release cooldown before dependency PRs, automerge for minor/patch, guarded majors, vulnerability alerts, and lockfile maintenance).
-- `node` - Groups TypeScript, linting, testing, and build-tool updates; automerges `devDependencies`; configures Mend Renovate auth for `@matt-riley` packages on GitHub Packages via `GITHUB_PACKAGES_TOKEN`; skips the release cooldown for `@matt-riley/*` packages so their PRs open immediately.
+- `default` - Baseline rules (`config:recommended`, semantic commits, a 7-day release cooldown before dependency PRs, automerge for minor/patch, guarded majors, vulnerability alerts, and lockfile maintenance).
+- `node` - Groups TypeScript, linting, testing, and build-tool updates; automerges minor/patch `devDependencies` (majors require review); configures Renovate auth for `@matt-riley` packages on GitHub Packages (requires `GITHUB_PACKAGES_TOKEN` secret at Renovate bot admin level; GitHub-hosted Renovate may auto-provision); skips the release cooldown for `@matt-riley/*` packages so their PRs open immediately.
 - `go` - Groups common Go dependency ecosystems and automerges indirect minor/patch updates.
 - `terraform` - Groups Terraform providers and modules, and keeps Terraform/OpenTofu runtime version updates manual.
 - `docker` - Groups image updates, pins digests, and requires review for major updates.
-- `github-actions` - Pins GitHub Action digests and groups workflow dependency updates.
+- `github-actions` - Pins GitHub Action digests, groups workflow dependency updates, and requires review for major updates.
 - `astro` - Groups Astro, CSS/Tailwind, and Cloudflare packages.
 - `zig` - Groups `build.zig.zon` dependency updates and requires manual review (automerge disabled) because Zig package updates can introduce breaking toolchain or API changes.
 

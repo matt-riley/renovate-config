@@ -9,8 +9,16 @@
       "description": "Group GitHub Actions updates",
       "matchManagers": ["github-actions"],
       "groupName": "GitHub Actions",
-      "labels": ["github-actions", "dependencies"],
+      "addLabels": ["github-actions", "dependencies"],
       "automerge": true
+    },
+    {
+      "description": "Require review for major GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "addLabels": ["major-update", "github-actions", "dependencies"],
+      "reviewers": ["matt-riley"]
     }
   ]
 }

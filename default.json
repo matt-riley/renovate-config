@@ -6,7 +6,7 @@
     ":semanticCommits"
   ],
   "labels": ["dependencies"],
-  "minimumReleaseAge": "2 days",
+  "minimumReleaseAge": "7 days",
   "prCreation": "immediate",
   "internalChecksFilter": "strict",
   "automerge": true,
@@ -24,7 +24,7 @@
       "description": "Require review for all major updates",
       "matchUpdateTypes": ["major"],
       "automerge": false,
-      "labels": ["major-update", "dependencies"],
+      "addLabels": ["major-update", "dependencies"],
       "reviewers": ["matt-riley"]
     }
   ],

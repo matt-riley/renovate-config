@@ -6,7 +6,7 @@
       "description": "Group Astro core and integrations",
       "groupName": "Astro",
       "matchPackageNames": ["/^astro/", "/^@astrojs\\//"],
-      "labels": ["astro", "dependencies"]
+      "addLabels": ["astro", "dependencies"]
     },
     {
       "description": "Group CSS/Tailwind packages",
@@ -19,13 +19,13 @@
         "sass",
         "/^postcss/"
       ],
-      "labels": ["css", "dependencies"]
+      "addLabels": ["css", "dependencies"]
     },
     {
       "description": "Group Cloudflare packages",
       "groupName": "Cloudflare",
       "matchPackageNames": ["wrangler", "/^@cloudflare\\//"],
-      "labels": ["cloudflare", "dependencies"]
+      "addLabels": ["cloudflare", "dependencies"]
     }
   ]
 }

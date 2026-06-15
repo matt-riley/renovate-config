@@ -3,10 +3,10 @@
   "description": "Docker and container image Renovate rules",
   "packageRules": [
     {
-      "description": "Group Docker base images by project",
+      "description": "Group all Docker and container image updates",
       "matchManagers": ["dockerfile", "docker-compose"],
       "groupName": "Docker images",
-      "labels": ["docker", "dependencies"]
+      "addLabels": ["docker", "dependencies"]
     },
     {
       "description": "Pin Docker digests for reproducibility",
