@@ -20,20 +20,12 @@
       "prCreation": "immediate"
     },
     {
-      "description": "Automerge devDependencies (minor/patch only; majors require review via baseline policy)",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    },
-    {
-      "description": "Group TypeScript and type definitions",
-      "groupName": "TypeScript",
+      "description": "Label TypeScript and type definitions",
       "matchPackageNames": ["/^@types\\//", "/^typescript/"],
       "addLabels": ["typescript", "dependencies"]
     },
     {
-      "description": "Group linting/formatting tools",
-      "groupName": "linting",
+      "description": "Label linting/formatting tools",
       "matchPackageNames": [
         "/^oxlint/",
         "/^oxfmt/",
@@ -47,14 +39,12 @@
       "addLabels": ["linting", "dependencies"]
     },
     {
-      "description": "Group testing frameworks",
-      "groupName": "testing",
+      "description": "Label testing frameworks",
       "matchPackageNames": ["/^vitest/", "/^@vitest\\//", "/^jest($|[-/])/", "ts-jest", "jest-junit"],
       "addLabels": ["testing", "dependencies"]
     },
     {
-      "description": "Group build tools",
-      "groupName": "build-tools",
+      "description": "Label build tools",
       "matchPackageNames": [
         "pkgroll",
         "tsup",

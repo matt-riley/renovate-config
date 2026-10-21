@@ -6,16 +6,15 @@
   ],
   "packageRules": [
     {
-      "description": "Group GitHub Actions updates",
+      "description": "Label GitHub Actions updates. Pin and digest updates automerge from the default preset only after status checks pass.",
       "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions",
-      "addLabels": ["github-actions", "dependencies"],
-      "automerge": true
+      "addLabels": ["github-actions", "dependencies"]
     },
     {
       "description": "Require review for major GitHub Actions updates",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["major"],
+      "groupName": "GitHub Actions major",
       "automerge": false,
       "addLabels": ["major-update", "github-actions", "dependencies"],
       "reviewers": ["matt-riley"]

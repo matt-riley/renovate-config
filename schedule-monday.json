@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Open Renovate pull requests on Monday mornings (Europe/London). Extend last, after the default preset. This matches the default schedule.",
+  "timezone": "Europe/London",
+  "schedule": ["before 8am on monday"],
+  "lockFileMaintenance": {
+    "schedule": ["before 8am on monday"]
+  }
+}

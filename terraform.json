@@ -8,23 +8,21 @@
       "addLabels": ["terraform"]
     },
     {
-      "description": "Group Terraform provider updates",
+      "description": "Label Terraform provider updates. Non-major updates join the weekly batches from the default preset.",
       "matchManagers": ["terraform"],
       "matchDepTypes": ["provider", "required_provider"],
       "matchUpdateTypes": ["minor", "patch", "pin"],
-      "groupName": "Terraform providers",
       "addLabels": ["terraform-providers"]
     },
     {
-      "description": "Group Terraform module updates",
+      "description": "Label Terraform module updates. Non-major updates join the weekly batches from the default preset.",
       "matchManagers": ["terraform"],
       "matchDepTypes": ["module"],
       "matchUpdateTypes": ["minor", "patch", "pin"],
-      "groupName": "Terraform modules",
       "addLabels": ["terraform-modules"]
     },
     {
-      "description": "Review Terraform/OpenTofu runtime version changes manually",
+      "description": "Review Terraform/OpenTofu runtime version changes manually. Kept out of the weekly automerge batch.",
       "matchManagers": ["terraform"],
       "matchDepTypes": ["required_version", "tfe_workspace"],
       "groupName": "Terraform/OpenTofu runtime",

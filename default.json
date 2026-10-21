@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Default Renovate config for matt-riley repositories",
+  "description": "Default Renovate config for matt-riley repositories. Patch, digest, and GitHub Actions pin/digest updates may automerge only after GitHub reports passing status checks. Minor and major updates never automerge. Non-major updates are grouped into weekly batches. The default weekday is Monday (Europe/London); extend a schedule-* preset last to move a repository.",
   "extends": [
     "config:recommended",
     ":semanticCommits"
@@ -9,15 +9,33 @@
   "minimumReleaseAge": "7 days",
   "prCreation": "immediate",
   "internalChecksFilter": "strict",
-  "automerge": true,
+  "automerge": false,
   "automergeType": "pr",
   "automergeStrategy": "rebase",
+  "platformAutomerge": false,
   "timezone": "Europe/London",
-  "schedule": ["before 8am every weekday"],
+  "schedule": ["before 8am on monday"],
   "packageRules": [
     {
-      "description": "Automerge minor and patch updates",
-      "matchUpdateTypes": ["minor", "patch"],
+      "description": "Weekly review batch for minor updates and version pins. Never automerge.",
+      "matchUpdateTypes": ["minor", "pin"],
+      "groupName": "weekly minor and pin updates",
+      "groupSlug": "weekly-minor-pin",
+      "automerge": false
+    },
+    {
+      "description": "Weekly batch of patch and digest updates. Eligible to automerge only when every update on the branch is eligible and GitHub reports passing status checks. ignoreTests is intentionally unset so it stays false.",
+      "matchUpdateTypes": ["patch", "digest", "pinDigest"],
+      "groupName": "weekly patch and digest updates",
+      "groupSlug": "weekly-patch-digest",
+      "automerge": true
+    },
+    {
+      "description": "GitHub Actions pin and digest updates join the weekly patch and digest batch",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["pin", "digest", "pinDigest"],
+      "groupName": "weekly patch and digest updates",
+      "groupSlug": "weekly-patch-digest",
       "automerge": true
     },
     {
@@ -31,17 +49,33 @@
       "description": "Skip minimumReleaseAge for digest/pin/lockfile updates without release timestamps (renovatebot/renovate#45236)",
       "matchUpdateTypes": ["digest", "pinDigest", "lockFileMaintenance"],
       "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
+      "description": "Never automerge matt-riley/go-api-template. Its CI is Woodpecker and does not report status checks to GitHub.",
+      "matchRepositories": ["matt-riley/go-api-template"],
+      "matchPackageNames": ["*"],
+      "automerge": false,
+      "platformAutomerge": false
+    },
+    {
+      "description": "Never automerge lock file maintenance on matt-riley/go-api-template either",
+      "matchRepositories": ["matt-riley/go-api-template"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": false,
+      "platformAutomerge": false
     }
   ],
   "vulnerabilityAlerts": {
     "enabled": true,
     "labels": ["security", "dependencies"],
     "automerge": false,
+    "groupName": "security alerts",
+    "schedule": ["at any time"],
     "reviewers": ["matt-riley"]
   },
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
-    "schedule": ["before 6am on monday"]
+    "schedule": ["before 8am on monday"]
   }
 }

@@ -3,7 +3,7 @@
   "description": "Zig build.zig.zon dependency Renovate rules",
   "packageRules": [
     {
-      "description": "Group Zig package updates and require review (toolchain changes are breaking)",
+      "description": "Group Zig package updates and require review. Separate from the weekly batches so a Zig update cannot block or ride along with an automerged patch PR.",
       "matchManagers": ["zig"],
       "groupName": "Zig packages",
       "addLabels": ["zig", "dependencies"],
