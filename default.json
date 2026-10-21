@@ -26,6 +26,11 @@
       "automerge": false,
       "addLabels": ["major-update", "dependencies"],
       "reviewers": ["matt-riley"]
+    },
+    {
+      "description": "Skip minimumReleaseAge for digest/pin/lockfile updates without release timestamps (renovatebot/renovate#45236)",
+      "matchUpdateTypes": ["digest", "pinDigest", "lockFileMaintenance"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ],
   "vulnerabilityAlerts": {
