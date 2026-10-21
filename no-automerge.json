@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Disable automerge. Extend this last when CI does not report status checks to GitHub (for example Woodpecker). matt-riley/go-api-template is already excluded by the default preset.",
+  "automerge": false,
+  "platformAutomerge": false,
+  "lockFileMaintenance": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "description": "Disable automerge for every package, overriding earlier preset rules",
+      "matchPackageNames": ["*"],
+      "automerge": false,
+      "platformAutomerge": false
+    },
+    {
+      "description": "Disable automerge for lock file maintenance, which has no package name",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": false,
+      "platformAutomerge": false
+    }
+  ]
+}

@@ -3,14 +3,12 @@
   "description": "Astro framework-specific Renovate rules",
   "packageRules": [
     {
-      "description": "Group Astro core and integrations",
-      "groupName": "Astro",
+      "description": "Label Astro core and integrations",
       "matchPackageNames": ["/^astro/", "/^@astrojs\\//"],
       "addLabels": ["astro", "dependencies"]
     },
     {
-      "description": "Group CSS/Tailwind packages",
-      "groupName": "CSS/Tailwind",
+      "description": "Label CSS/Tailwind packages",
       "matchPackageNames": [
         "/^tailwindcss/",
         "/^@tailwindcss\\//",
@@ -22,8 +20,7 @@
       "addLabels": ["css", "dependencies"]
     },
     {
-      "description": "Group Cloudflare packages",
-      "groupName": "Cloudflare",
+      "description": "Label Cloudflare packages",
       "matchPackageNames": ["wrangler", "/^@cloudflare\\//"],
       "addLabels": ["cloudflare", "dependencies"]
     }

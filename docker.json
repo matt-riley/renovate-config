@@ -3,16 +3,9 @@
   "description": "Docker and container image Renovate rules",
   "packageRules": [
     {
-      "description": "Group all Docker and container image updates",
+      "description": "Label Docker and container image updates. Non-major updates join the weekly batches from the default preset.",
       "matchManagers": ["dockerfile", "docker-compose"],
-      "groupName": "Docker images",
       "addLabels": ["docker", "dependencies"]
-    },
-    {
-      "description": "Pin Docker digests for reproducibility",
-      "matchManagers": ["dockerfile"],
-      "matchUpdateTypes": ["pin"],
-      "automerge": true
     },
     {
       "description": "Require review for major Docker image updates",
