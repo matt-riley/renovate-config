@@ -1,7 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Go-specific Renovate rules with dependency groupings",
+  "postUpdateOptions": ["gomodTidy"],
   "packageRules": [
+    {
+      "description": "Group Go toolchain version updates in mise and asdf with go.mod",
+      "matchManagers": ["mise", "asdf"],
+      "matchDepNames": ["go", "golang"],
+      "groupName": "Go toolchain",
+      "addLabels": ["go-toolchain", "dependencies"]
+    },
+    {
+      "description": "Bump and group go.mod go and toolchain directives with toolchain pins",
+      "matchManagers": ["gomod"],
+      "matchDepNames": ["go"],
+      "matchDepTypes": ["golang", "toolchain"],
+      "rangeStrategy": "bump",
+      "groupName": "Go toolchain",
+      "addLabels": ["go-toolchain", "dependencies"]
+    },
     {
       "description": "Group golang.org/x/* packages",
       "matchManagers": ["gomod"],
