@@ -61,7 +61,7 @@
         "/^github\\.com\\/cncf\\/xds\\//",
         "/^github\\.com\\/envoyproxy\\//",
         "/^github\\.com\\/planetscale\\//",
-        "/^cel\\.dev\\/"
+        "/^cel\\.dev\\//"
       ],
       "addLabels": ["google", "dependencies"]
     },
