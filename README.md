@@ -60,6 +60,7 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 
 | Repository | Preset |
 | --- | --- |
+| `.pi` | `schedule-monday` |
 | `agengit` | `schedule-monday` |
 | `agengit-docs` | `schedule-tuesday` |
 | `agent-skills` | `schedule-wednesday` |
@@ -68,23 +69,41 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `crap` | `schedule-monday` |
 | `deadwood` | `schedule-tuesday` |
 | `elysia-crud-template` | `schedule-wednesday` |
+| `eyrie` | `schedule-tuesday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `flags` | `schedule-wednesday` |
 | `flagz` | `schedule-thursday` |
 | `gh-mfmatt` | `schedule-friday` |
 | `go-api-template` | `schedule-monday` (automerge already disabled) |
+| `gravitation` | `schedule-thursday` |
+| `homestead` | `schedule-friday` |
+| `hono-express` | `schedule-monday` |
 | `hopcli` | `schedule-tuesday` |
+| `infra` | `schedule-tuesday` |
+| `jev-oni` | `schedule-wednesday` |
+| `kes` | `schedule-thursday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `lastfm-sync` | `schedule-friday` |
+| `lexi` | `schedule-monday` |
+| `liner` | `schedule-tuesday` |
 | `lore` | `schedule-wednesday` |
 | `matt-riley` | `schedule-thursday` |
 | `matt-riley-ci` | `schedule-friday` |
+| `matt-riley.dev` | `schedule-wednesday` |
 | `mattriley.tools` | `schedule-monday` |
+| `mattriley.wtf` | `schedule-thursday` |
 | `newbrew` | `schedule-tuesday` |
 | `nvim-plugin-template` | `schedule-wednesday` |
+| `pandawaffle` | `schedule-friday` |
+| `pds` | `schedule-monday` |
+| `pi-browser` | `schedule-tuesday` |
 | `pi-extensions` | `schedule-thursday` |
 | `pint.nvim` | `schedule-friday` |
 | `renovate-config` | `schedule-monday` |
+| `repos-sync` | `schedule-wednesday` |
 | `skill-evaluator` | `schedule-tuesday` |
 | `slides.nvim` | `schedule-wednesday` |
 | `ts-package-template` | `schedule-thursday` |
 | `waystone.nvim` | `schedule-friday` |
+| `workv3` | `schedule-thursday` |
 
 ## Usage
 
