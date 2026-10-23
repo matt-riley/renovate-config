@@ -81,7 +81,7 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `deadwood` | `schedule-tuesday` |
 | `dots-cli` | `schedule-friday` |
 | `elysia-crud-template` | `schedule-wednesday` |
-| `eyrie` | `schedule-tuesday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `eyrie` | `schedule-tuesday` |
 | `flags` | `schedule-wednesday` |
 | `flagz` | `schedule-thursday` |
 | `gh-mfmatt` | `schedule-friday` |
@@ -92,7 +92,7 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `hopcli` | `schedule-tuesday` |
 | `infra` | `schedule-tuesday` |
 | `jev-oni` | `schedule-wednesday` |
-| `kes` | `schedule-thursday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `kes` | `schedule-thursday` |
 | `lastfm-sync` | `schedule-friday` |
 | `lexi` | `schedule-monday` |
 | `liner` | `schedule-tuesday` |
