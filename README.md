@@ -28,9 +28,11 @@ Automerge is off unless a rule turns it on.
 | Vulnerability alerts | No, and they stay out of the weekly batches |
 | Zig packages, Terraform/OpenTofu runtime | No |
 
-`platformAutomerge` is `false`. Renovate merges the PR itself on a later run, and only when the branch status is green. `ignoreTests` is not set, so it stays at its default `false`: Renovate will not treat a branch with no real status checks as green.
+`platformAutomerge` is `false`. Renovate merges the PR itself on a later run, and only when the branch status is green. `ignoreTests` is not set, so it stays at its default `false`.
 
-GitHub's combined status for a commit with zero statuses is `pending` (`statuses: []`). Renovate then reports branch status `yellow` when there are also no check runs, so a repository whose CI never reports to GitHub does not automerge. `matt-riley/go-api-template` is also excluded explicitly, because its tests run on Woodpecker. Other repositories in that situation should extend `no-automerge` last:
+**Automerge needs real CI that reports checks to GitHub.** Renovate treats a branch as green when every check GitHub reports has passed. It cannot tell a test run from any other check. The GitGuardian app reports `GitGuardian Security Checks` on every pull request in every `matt-riley` repository, so a repository with no CI of its own still shows a green check once the secret scan passes, and would automerge on that alone. Only a repository with workflows (or another CI) that build or test pull requests and report the result to GitHub should automerge.
+
+`matt-riley/go-api-template` is excluded explicitly, because its tests run on Woodpecker, which does not report to GitHub. Any other repository without CI that reports to GitHub must extend `no-automerge` last (after any `schedule-*` preset; the two do not overlap):
 
 ```json
 {
@@ -40,6 +42,15 @@ GitHub's combined status for a commit with zero statuses is `pending` (`statuses
   ]
 }
 ```
+
+These repositories extend `no-automerge` because their only GitHub check is GitGuardian:
+
+- `.pi`, `flags`, `hono-express`, `jev-oni`, `matt-riley`, `matt-riley.dev`, `pi-browser`, `renovate-config`
+- Repositories that do not use the default preset but extend `no-automerge`: `boba`, `bot`, `cli-template`, `monarch-files`, `npm-release-action`, `slides`, `thegraphql.dev`
+
+`no-automerge` only wins over other presets. A repository's own `packageRules` are applied after every preset, so a local rule with `"automerge": true` still turns automerge back on. Remove any such rule when you add `no-automerge`.
+
+If you add real CI to one of them, remove `no-automerge` from its `extends` to let green patch and digest updates automerge again.
 
 Lock file maintenance still automerges when status checks pass. It follows the same weekday window and is never grouped with dependency updates. It does not automerge on `go-api-template`.
 
@@ -68,8 +79,9 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `brasshandoil` | `schedule-friday` |
 | `crap` | `schedule-monday` |
 | `deadwood` | `schedule-tuesday` |
+| `dots-cli` | `schedule-friday` |
 | `elysia-crud-template` | `schedule-wednesday` |
-| `eyrie` | `schedule-tuesday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `eyrie` | `schedule-tuesday` |
 | `flags` | `schedule-wednesday` |
 | `flagz` | `schedule-thursday` |
 | `gh-mfmatt` | `schedule-friday` |
@@ -80,7 +92,7 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `hopcli` | `schedule-tuesday` |
 | `infra` | `schedule-tuesday` |
 | `jev-oni` | `schedule-wednesday` |
-| `kes` | `schedule-thursday` (pending re-pin: currently pinned to `c66f71af`, which predates the schedule presets) |
+| `kes` | `schedule-thursday` |
 | `lastfm-sync` | `schedule-friday` |
 | `lexi` | `schedule-monday` |
 | `liner` | `schedule-tuesday` |
@@ -124,5 +136,5 @@ Add a `.github/renovate.json` file in your repo. Put the schedule preset last:
 
 - `"github>matt-riley/renovate-config"` loads `default.json`.
 - Add only the additional presets your project needs.
-- Extend at most one `schedule-*` preset, and extend it after the other presets so it wins.
-- Extend `no-automerge` last if CI does not report checks to GitHub. `go-api-template` is already covered by `default`.
+- Extend at most one `schedule-*` preset, and extend it after the other presets so it wins. `no-automerge`, if needed, can come after it.
+- Extend `no-automerge` last if CI does not report checks to GitHub. A GitGuardian check on its own does not count. `go-api-template` is already covered by `default`.
