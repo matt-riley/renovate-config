@@ -46,7 +46,7 @@ Automerge is off unless a rule turns it on.
 These repositories extend `no-automerge` because their only GitHub check is GitGuardian:
 
 - `matt-riley`, `matt-riley.dev`, `pi-browser`, `renovate-config`
-- Repositories that do not use the default preset but extend `no-automerge`: `bot`, `cli-template`, `npm-release-action`, `slides`
+- Repositories that do not use the default preset but extend `no-automerge`: `bot`, `cli-template`, `slides`
 
 `no-automerge` only wins over other presets. A repository's own `packageRules` are applied after every preset, so a local rule with `"automerge": true` still turns automerge back on. Remove any such rule when you add `no-automerge`.
 
@@ -82,7 +82,6 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `elysia-crud-template` | `schedule-wednesday` |
 | `gh-mfmatt` | `schedule-friday` |
 | `go-api-template` | `schedule-monday` (automerge already disabled) |
-| `gravitation` | `schedule-thursday` |
 | `homestead` | `schedule-friday` |
 | `hopcli` | `schedule-tuesday` |
 | `infra` | `schedule-tuesday` |
