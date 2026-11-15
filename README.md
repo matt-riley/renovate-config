@@ -45,8 +45,8 @@ Automerge is off unless a rule turns it on.
 
 These repositories extend `no-automerge` because their only GitHub check is GitGuardian:
 
-- `.pi`, `flags`, `hono-express`, `jev-oni`, `matt-riley`, `matt-riley.dev`, `pi-browser`, `renovate-config`
-- Repositories that do not use the default preset but extend `no-automerge`: `boba`, `bot`, `cli-template`, `monarch-files`, `npm-release-action`, `slides`, `thegraphql.dev`
+- `matt-riley`, `matt-riley.dev`, `pi-browser`, `renovate-config`
+- Repositories that do not use the default preset but extend `no-automerge`: `bot`, `cli-template`, `npm-release-action`, `slides`
 
 `no-automerge` only wins over other presets. A repository's own `packageRules` are applied after every preset, so a local rule with `"automerge": true` still turns automerge back on. Remove any such rule when you add `no-automerge`.
 
@@ -71,7 +71,6 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 
 | Repository | Preset |
 | --- | --- |
-| `.pi` | `schedule-monday` |
 | `agengit` | `schedule-monday` |
 | `agengit-docs` | `schedule-tuesday` |
 | `agent-skills` | `schedule-wednesday` |
@@ -81,18 +80,12 @@ Alphabetical round-robin across Monday–Friday. New repositories should extend 
 | `deadwood` | `schedule-tuesday` |
 | `dots-cli` | `schedule-friday` |
 | `elysia-crud-template` | `schedule-wednesday` |
-| `eyrie` | `schedule-tuesday` |
-| `flags` | `schedule-wednesday` |
-| `flagz` | `schedule-thursday` |
 | `gh-mfmatt` | `schedule-friday` |
 | `go-api-template` | `schedule-monday` (automerge already disabled) |
 | `gravitation` | `schedule-thursday` |
 | `homestead` | `schedule-friday` |
-| `hono-express` | `schedule-monday` |
 | `hopcli` | `schedule-tuesday` |
 | `infra` | `schedule-tuesday` |
-| `jev-oni` | `schedule-wednesday` |
-| `kes` | `schedule-thursday` |
 | `lastfm-sync` | `schedule-friday` |
 | `lexi` | `schedule-monday` |
 | `liner` | `schedule-tuesday` |
